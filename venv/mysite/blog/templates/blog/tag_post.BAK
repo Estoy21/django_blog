@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang = "ja-jp">
+<head>
+    <title>「#{{ tag.name}}」投稿一覧</title>
+</head>
+<body>
+   <h1>「{{ cateory.name }}」一覧</h1>
+   <ul>
+      {% for post in object_list %}
+      {% if user.is_authenticated or post.is_public %}
+      <li>{% if nostpost.ispublic %} [下書き]{% endif %} <a href="{% url 'blog:post_detail' post.id%}">{{post.title}}</a></li>
+      {% else %}
+      <li>投稿はありません。</li>
+      {% endif %}
+      {% empty %}
+      <li>まだ投稿はありません。</li>
+      {% endfor %}
+   </ul>
+</body>
+</html>

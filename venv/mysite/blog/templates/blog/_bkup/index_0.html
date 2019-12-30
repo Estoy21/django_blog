@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang = "ja-jp">
+<head>
+    <title>投稿一覧</title>
+</head>
+<body>
+   <!-- <h1>これは投稿一覧のページです！</h1>-->
+   <h1>投稿一覧</h1>
+   
+   {% for post in posts.all %}
+       {{ post.title }}
+       <br /><br />
+       {{ post.published}}
+             <img src "{{ post.image.url}}" />
+       <br /><br />
+       {{ post.summary }}
+       <br /><br />
+   {% endfor %}
+</body>
+</html>
